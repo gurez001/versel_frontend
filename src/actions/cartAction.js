@@ -13,6 +13,7 @@ export const addItemsToCart =
       `${server_url()}/api/v1/product/${id}`,
       get_method()
     );
+    console.log(data)
     dispatch({
       type: ADD_TO_CART,
       payload: {
