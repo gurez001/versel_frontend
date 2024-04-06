@@ -56,11 +56,19 @@ const ProductCard = ({ product }) => {
         <div className="product-card-row">
           <div className="prod-img-cont">
             <div className="prod-card-img">
-              <LazyLoadImages
-                product={
-                  product && product.product_images && product.product_images[0]
-                }
-              />
+            {product &&
+              product.product_images &&
+              product.product_images.length > 0 ? (
+                <LazyLoadImages
+                  product={
+                    product &&
+                    product.product_images &&
+                    product.product_images[0]
+                  }
+                />
+              ) : (
+                <img src="/courrgated-box-2.webp" alt="ss" />
+              )}
               <div className="prod-wish">
                 <p onClick={() => setQuickOpen(true)}>Quick View</p>
               </div>
@@ -130,17 +138,28 @@ const ProductCard = ({ product }) => {
               </Link>
             </h3>
             <div className="">
-              <p style={{gap:5,justifyContent:'center',fontWeight:600,color:'#000'}} className="row">
+              <p
+                style={{
+                  gap: 5,
+                  justifyContent: "center",
+                  fontWeight: 600,
+                  color: "#000",
+                }}
+                className="row"
+              >
                 <span>
                   <Currency price={product.product_regular_price} />
                 </span>
-               <span>-</span>
+                <span>-</span>
                 <span>
                   <Currency price={product.product_sale_price} />
                 </span>
               </p>
             </div>
-            <div style={{gap:5,justifyContent:'center',alignItems:'center'}} className="row">
+            <div
+              style={{ gap: 5, justifyContent: "center", alignItems: "center" }}
+              className="row"
+            >
               <Rating {...options} />
               <span className="rev-tot">
                 (

@@ -55,11 +55,19 @@ const NewProducts = ({ product }) => {
         <div className="product-card-row">
           <div className="prod-img-cont">
             <div className="prod-card-img">
-              <LazyLoadImages
-                product={
-                  product && product.product_images && product.product_images[0]
-                }
-              />
+            {product &&
+              product.product_images &&
+              product.product_images.length > 0 ? (
+                <LazyLoadImages
+                  product={
+                    product &&
+                    product.product_images &&
+                    product.product_images[0]
+                  }
+                />
+              ) : (
+                <img src="/courrgated-box-2.webp" alt="ss" />
+              )}
               <div className="prod-wish">
                 <p onClick={() => setQuickOpen(true)}>Quick View</p>
               </div>
