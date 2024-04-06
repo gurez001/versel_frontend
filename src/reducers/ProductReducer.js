@@ -189,21 +189,24 @@ export const productDetailsReducer = (state = { product: {} }, action) => {
   switch (action.type) {
     case PRODUCCT_DETAILS_REQUEST:
       return {
-        loding: true,
         ...state,
+        loding: true,
       };
     case PRODUCCT_DETAILS_SUCCESS:
       return {
+        ...state,
         loding: false,
         product: action.payload,
       };
     case PRODUCCT_DETAILS_FAIL:
       return {
+        ...state,
         loding: false,
         error: action.payload,
       };
     case ALL_PRODUCT_ERRORS:
       return {
+        ...state,
         ...state,
         error: null,
       };

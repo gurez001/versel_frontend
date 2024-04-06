@@ -43,20 +43,10 @@ const Details = ({ setVariantPriceValue, variantPriceValue, setLabel }) => {
   };
 
   useMemo(() => {
-    // const fetchData = async () => {
-    //   try {
-        dispatch(getProductDetails(id));
-        if (productType === "Variable product") {
-          dispatch(getProductPostMeta(productUuid));
-        }
-    //   } catch (error) {
-    //     console.error("Error fetching product details:", error);
-    //   }
-    // };
-    // fetchData();
-    return () => {
-      console.log("Cleanup code executed");
-    };
+    dispatch(getProductDetails(id));
+    if (productType === "Variable product") {
+      dispatch(getProductPostMeta(productUuid));
+    }
   }, [dispatch, id, productUuid && productUuid, productType && productType]);
 
   useEffect(() => {
