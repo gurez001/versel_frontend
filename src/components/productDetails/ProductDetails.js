@@ -84,7 +84,7 @@ const ProductDetails = () => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setload(false);
-    }, 2000);
+    }, 3000);
 
     return () => {
       clearTimeout(timeoutId);

@@ -34,7 +34,7 @@ const ImageLightbox = ({ product_images }) => {
     },
   ];
 
-  return <>{ <ImageGallery items={images.length > 0?images:imagess} />}</>;
+  return <>{<ImageGallery items={images.length > 0 ? images : imagess} />}</>;
 };
 
 export default ImageLightbox;
