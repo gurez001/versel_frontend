@@ -7,7 +7,7 @@ import ProductAnimation from "../layout/loader/ProductAnimation";
 const ProductContainor = ({ setFilter, filter }) => {
   const { loding, products } = useSelector((state) => state.products);
   const [loader, set_loader] = useState(true);
-
+  const length = [1,2,3,4,5,6,7,8,9]
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       set_loader(false);
@@ -26,7 +26,7 @@ const ProductContainor = ({ setFilter, filter }) => {
         <SortProductFilter setFilter={setFilter} filter={filter} />
         <div className="row flex-wrap">
           {loding ? (
-            products && products.map((item, i) => <ProductAnimation key={i} />)
+            length && length.map((item, i) => <ProductAnimation key={i} />)
           ) : (
             <>
               {products &&
