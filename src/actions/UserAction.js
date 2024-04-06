@@ -65,7 +65,16 @@ export const Login = (email, password) => async (dispatch) => {
         sameSite: "none", // enforcement type
         partitioned: false, // store using partitioned storage
     };
-    cookies.set("token", token, options);
+    const options2 = {
+      path: "/", // cookie path
+      //   Domain: ".onrender.com", // domain for the cookie
+        secure: true, // accessible through HTTP
+        httpOnly: true, // only server can access the cookie
+        sameSite: "none", // enforcement type
+        partitioned: false, // store using partitioned storage
+    };
+    cookies.set("d-token", token, options2);
+    cookies.set("tdoken", token, options);
 
     dispatch({ type: LOGIN_SUCCESS, payload: data.user });
   } catch (error) {
