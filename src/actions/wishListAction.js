@@ -10,7 +10,10 @@ import axios from "axios";
 import { server_url } from "../utils/Url";
 import { get_method, others_method } from "../utils/Headers";
 export const wishListAction = (id, price) => async (dispatch, getState) => {
-  const { data } = await axios.get(`${server_url()}/api/v1/product/${id}`, get_method());
+  const { data } = await axios.get(
+    `${server_url()}/api/v1/product/${id}`,
+    get_method()
+  );
   dispatch({
     type: ADD_TO_WISHLIST,
     payload: {
@@ -18,8 +21,10 @@ export const wishListAction = (id, price) => async (dispatch, getState) => {
       link: data.Product.slug,
       name: data.Product.product_name,
       price: price,
-      // path: data.Product.product_images[0].path,         
-      path:'/courrgated-box-2.webp',       
+      path:
+        data.Product.product_images.length > 0
+          ? data.Product.product_images[0].path
+          : "/Logo.png",
       category: data.Product.product_category[0].slug,
     },
   });
@@ -51,7 +56,7 @@ export const CreateBookmarkAction =
       const formData = new FormData();
       formData.append("wishlist_product_id", wishlist_product_id);
       formData.append("wishlist_product_uuid", wishlist_product_uuid);
-      
+
       const { data } = await axios.post(
         `${server_url()}/api/v1/create-bookmark`,
         formData,

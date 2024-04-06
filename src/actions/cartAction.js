@@ -13,7 +13,6 @@ export const addItemsToCart =
       `${server_url()}/api/v1/product/${id}`,
       get_method()
     );
-    console.log(data)
     dispatch({
       type: ADD_TO_CART,
       payload: {
@@ -22,8 +21,7 @@ export const addItemsToCart =
         product_uuid: data.Product.product_uuid,
         name: data.Product.product_name,
         price: price ? price : data.Product.product_sale_price,
-        path:'/courrgated-box-2.webp',
-        // path: data.Product.product_images[0].path,'./courrgated-box-2.webp'
+        path: data.Product.product_images.length>0?data.Product.product_images[0].path:'/Logo.png',
         category: data.Product.product_category[0].slug,
         quantity,
         label,
