@@ -112,7 +112,7 @@ const GetContactDetails = () => {
           <Aside />
           <div id="ad-body">
             <div className="ad-cont">
-              <section className="ad-section">
+              <section className="page-section">
                 <h2>contact details</h2>
                 {loading ? (
                   <Loader />

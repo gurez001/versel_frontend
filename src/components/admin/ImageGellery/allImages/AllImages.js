@@ -35,7 +35,7 @@ const AllImages = () => {
           <div id="ad-body">
             <div className="ad-cont">
               <div className="all-img-cont-containor">
-                <section className="ad-section">
+                <section className="page-section">
                   <div className="all-img-cont">
                     <div className="admin-img-title">
                       <div className="gallery-header">

@@ -134,7 +134,7 @@ export const UpdateOrders = () => {
 
           <div id="ad-body" className="ad-body-full">
             <div className="ad-cont">
-              <section className="ad-section">
+              <section className="page-section">
                 <div className="all-products-cont">
                   <div className="order-flex">
                     <div className="order-flex-left">

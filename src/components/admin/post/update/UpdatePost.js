@@ -129,7 +129,7 @@ const UpdatePost = () => {
           <Aside />
           <div id="ad-body">
             <div className="ad-cont">
-              <section className="ad-section">
+              <section className="page-section">
                 <form onSubmit={submitHandler}>
                   <div className="from-main-div">
                     <div className="form-main-left">

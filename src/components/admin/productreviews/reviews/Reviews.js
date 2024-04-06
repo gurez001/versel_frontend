@@ -152,7 +152,7 @@ export const Reviews = () => {
           <Aside />
           <div id="ad-body">
             <div className="ad-cont">
-              <section className="ad-section">
+              <section className="page-section">
                 <div className="all-review-cont">
                   <div className="all-review-content-area">
                     <div className="all-review-title">

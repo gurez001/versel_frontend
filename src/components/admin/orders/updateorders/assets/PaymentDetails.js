@@ -32,7 +32,7 @@ const PaymentDetails = () => {
           <Aside />
           <div id="ad-body">
             <div className="ad-cont">
-              <section className="ad-section">
+              <section className="page-section">
                <div className="payment-row">
                {loading ? (
                   <Loader />

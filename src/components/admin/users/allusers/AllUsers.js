@@ -136,7 +136,7 @@ export const AllUsers = () => {
           <Aside />
           <div id="ad-body">
             <div className="ad-cont">
-              <section className="ad-section">
+              <section className="page-section">
                 <div className="all-user-cont">
                   <div className="all-user-content-area">
                     <div className="all-user-title">

@@ -111,7 +111,7 @@ function AllPost() {
           <Aside />
           <div id="ad-body">
             <div className="ad-cont">
-              <section className="ad-section">
+              <section className="page-section">
                 <div className="all-post">
                   <div className="all-post-heading">
                   <h2>

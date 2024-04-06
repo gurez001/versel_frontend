@@ -10,7 +10,7 @@ const ImageUploader = () => {
           <Aside />
           <div id="ad-body">
             <div className="ad-cont">
-              <section className="ad-section">
+              <section className="page-section">
                 <div className="all-img-cont">
                   <div className="admin-img-title">
                     <div className="gallery-header">
