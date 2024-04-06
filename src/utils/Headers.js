@@ -3,8 +3,8 @@ const cookies = new Cookies(null, { path: '/' });
 function get_method() {
   const config = {
     withCredentials: true,
-    "Authorization": "Bearer " + cookies.get('token'),
-    "Cookie": cookies.get('token'),
+    "Authorization": "Bearer " + cookies.get('tdoken'),
+    "Cookie": cookies.get('tdoken'),
   };
   return config;
 }
@@ -14,9 +14,9 @@ function others_method() {
     withCredentials: true,
 
     headers: {
-      "Authorization": "Bearer " + cookies.get('token'),
+      "Authorization": "Bearer " + cookies.get('tdoken'),
       "Content-Type": "application/json",
-      "Cookie": cookies.get('token'),
+      "Cookie": cookies.get('tdoken'),
     },
   };
   return config;
@@ -26,9 +26,9 @@ function others_multiform_method() {
     withCredentials: true,
 
     headers: {
-      "Authorization": "Bearer " + cookies.get('token'),
+      "Authorization": "Bearer " + cookies.get('tdoken'),
       "Content-Type": "multipart/form-data",
-      "Cookie": cookies.get('token'),
+      "Cookie": cookies.get('tdoken'),
     },
   };
   return config;
