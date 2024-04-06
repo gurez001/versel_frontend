@@ -20,6 +20,7 @@ import generateUuid from "../../utils/Uuidv4";
 import { Button } from "@material-ui/core";
 import ErrorPage from "../404Page/ErrorPage";
 import Reviews from "./assets/Reviews";
+import { getProductDetails } from "../../actions/ProductAction";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -82,19 +83,19 @@ const ProductDetails = () => {
   };
 
   useEffect(() => {
-    // const timeoutId = setTimeout(() => {
-    // }, 2000);
-    if (!loding) {
+    const timeoutId = setTimeout(() => {
       setload(false);
-    }
-    // return () => {
-    //   clearTimeout(timeoutId);
-    // };
-  }, [loding]);
+    }, 2000);
+
+    dispatch(getProductDetails(id));
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [dispatch]);
 
   return (
     <>
-      {loding && load ? (
+      {load ? (
         <Loader />
       ) : product && product !== null ? (
         <div className="product-page">

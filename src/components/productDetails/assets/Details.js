@@ -43,7 +43,6 @@ const Details = ({ setVariantPriceValue, variantPriceValue, setLabel }) => {
   };
 
   useMemo(() => {
-    dispatch(getProductDetails(id));
     if (productType === "Variable product") {
       dispatch(getProductPostMeta(productUuid));
     }
