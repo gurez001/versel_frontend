@@ -59,15 +59,13 @@ export const Login = (email, password) => async (dispatch) => {
     const cookies = new Cookies(null, { path: "/" });
     const options = {
       path: "/", // cookie path
-      // // expires: new Date('2024-12-31'), // absolute expiration date
-      // // maxAge: 3600, // relative max age of the cookie from when the client receives it in seconds
-      Domain: "lhost", // domain for the cookie
-      // secure: false, // accessible through HTTP
-      // httpOnly: true, // only server can access the cookie
-      // sameSite: "None", // enforcement type
-      // partitioned: true, // store using partitioned storage
+      //   Domain: ".onrender.com", // domain for the cookie
+        secure: true, // accessible through HTTP
+        httpOnly: true, // only server can access the cookie
+        sameSite: "none", // enforcement type
+        partitioned: false, // store using partitioned storage
     };
-    // cookies.set("token", token, options);
+    cookies.set("token", token, options);
 
     dispatch({ type: LOGIN_SUCCESS, payload: data.user });
   } catch (error) {
