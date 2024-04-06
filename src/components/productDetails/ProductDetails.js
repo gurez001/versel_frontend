@@ -94,7 +94,7 @@ const ProductDetails = () => {
 
   return (
     <>
-      {loding || load ? (
+      {loding && load ? (
         <Loader />
       ) : product && product !== null ? (
         <div className="product-page">
