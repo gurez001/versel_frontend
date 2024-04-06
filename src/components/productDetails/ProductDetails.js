@@ -82,18 +82,19 @@ const ProductDetails = () => {
   };
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
+    // const timeoutId = setTimeout(() => {
+    // }, 2000);
+    if (!loding) {
       setload(false);
-    }, 2000);
-
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, []);
+    }
+    // return () => {
+    //   clearTimeout(timeoutId);
+    // };
+  }, [loding]);
 
   return (
     <>
-      {load ? (
+      {loding || load ? (
         <Loader />
       ) : product && product !== null ? (
         <div className="product-page">
