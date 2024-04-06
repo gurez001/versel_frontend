@@ -2,38 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 export const CategorySection = () => {
-  const cat = [
-    {
-      Cname: "Dolls",
-      img: "https://winkycoo.com/wp-content/uploads/2022/05/1-3.png",
-      link: "dolls",
-    },
-    {
-      Cname: "Animals",
-      img: "https://winkycoo.com/wp-content/uploads/2022/05/Animals.png",
-      link: "animals",
-    },
-    {
-      Cname: "School Bags",
-      img: "https://winkycoo.com/wp-content/uploads/2022/05/Animals-1.png",
-      link: "school-bags",
-    },
-    {
-      Cname: "Kids Essential",
-      img: "https://winkycoo.com/wp-content/uploads/2022/05/5.png",
-      link: "kids-essential",
-    },
-    {
-      Cname: "Teddies",
-      img: "https://winkycoo.com/wp-content/uploads/2022/05/2-3.png",
-      link: "teddies",
-    },
-    {
-      Cname: "Our Creations",
-      img: "https://winkycoo.com/wp-content/uploads/2022/05/3-3.png",
-      link: "our-creations",
-    },
-  ];
+  
   return (
     <>
       <section className="section-cont">

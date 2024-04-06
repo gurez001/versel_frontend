@@ -16,11 +16,19 @@ const Cards2 = ({ product }) => {
     <div className="card-containor">
       <div className="product-list-sm">
         <div className="list-sm-img">
-          <LazyLoadImages
-            product={
-              product && product.product_images && product.product_images[0]
-            }
-          />
+        {product &&
+              product.product_images &&
+              product.product_images.length > 0 ? (
+                <LazyLoadImages
+                  product={
+                    product &&
+                    product.product_images &&
+                    product.product_images[0]
+                  }
+                />
+              ) : (
+                <img src="/courrgated-box-2.webp" alt="ss" />
+              )}
         </div>
         <div className="list-sm-title">
           <h4 style={{ margin: 0 }}>
