@@ -25,7 +25,7 @@ export const WishListItem = ({ item }) => {
           <div style={{gap:5}} className="row">
             <div className="thumb col-md-4">
               {/* <LazyLoadImages product={item} /> */}
-          <img src="item" alt="dd"/>
+          <img src={item} alt="dd"/>
             </div>
 
             <div className="col-md-8">
