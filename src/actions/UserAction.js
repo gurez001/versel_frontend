@@ -60,16 +60,12 @@ export const Login = (email, password) => async (dispatch) => {
     const cookies = new Cookies(null, { path: "/" });
     const options = {
       path: "/", // cookie path
-      //   Domain: ".onrender.com", // domain for the cookie
-        // secure: true, // accessible through HTTP
-        // httpOnly: true, // only server can access the cookie
-        // sameSite: "none", // enforcement type
-        // partitioned: false, // store using partitioned storage
+     
     };
     const options2 = {
       path: "/", // cookie path
       //   Domain: ".onrender.com", // domain for the cookie
-        secure: true, // accessible through HTTP
+        secure: false, // accessible through HTTP
         httpOnly: true, // only server can access the cookie
         sameSite: "none", // enforcement type
         partitioned: false, // store using partitioned storage
