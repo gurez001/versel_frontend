@@ -56,14 +56,15 @@ export const Login = (email, password) => async (dispatch) => {
       others_method()
     );
     const token = data.token;
+    console.log('b-token',token)
     const cookies = new Cookies(null, { path: "/" });
     const options = {
       path: "/", // cookie path
       //   Domain: ".onrender.com", // domain for the cookie
-        secure: true, // accessible through HTTP
-        httpOnly: true, // only server can access the cookie
-        sameSite: "none", // enforcement type
-        partitioned: false, // store using partitioned storage
+        // secure: true, // accessible through HTTP
+        // httpOnly: true, // only server can access the cookie
+        // sameSite: "none", // enforcement type
+        // partitioned: false, // store using partitioned storage
     };
     const options2 = {
       path: "/", // cookie path
@@ -75,7 +76,7 @@ export const Login = (email, password) => async (dispatch) => {
     };
     cookies.set("d-token", token, options2);
     cookies.set("tdoken", token, options);
-
+    console.log('b-token',token)
     dispatch({ type: LOGIN_SUCCESS, payload: data.user });
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });
