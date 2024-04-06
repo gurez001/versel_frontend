@@ -25,7 +25,7 @@ const ProductContainor = ({ setFilter, filter }) => {
       <div className="main-content-product product-containor">
         <SortProductFilter setFilter={setFilter} filter={filter} />
         <div className="row flex-wrap">
-          {loader ? (
+          {loding ? (
             products && products.map((item, i) => <ProductAnimation key={i} />)
           ) : (
             <>
