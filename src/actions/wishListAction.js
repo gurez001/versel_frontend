@@ -18,7 +18,8 @@ export const wishListAction = (id, price) => async (dispatch, getState) => {
       link: data.Product.slug,
       name: data.Product.product_name,
       price: price,
-      path: data.Product.product_images[0].path,
+      // path: data.Product.product_images[0].path,         
+      path:'/courrgated-box-2.webp',       
       category: data.Product.product_category[0].slug,
     },
   });
