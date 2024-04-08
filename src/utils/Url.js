@@ -3,7 +3,7 @@ function client_url() {
 }
 function server_url() {
   // return 'http://localhost:8000';
-  // return 'https://gurez-live.onrender.com' 
+  // return 'https://new-live-gurez.onrender.com' 
   return 'https://new-live-git-main-gurez001s-projects.vercel.app' 
 }
 
