@@ -45,27 +45,19 @@ import {
 import axios from "axios";
 import { server_url } from "../utils/Url";
 import { get_method, others_method } from "../utils/Headers";
-const cookies = new Cookies(null, { path: "/" });
 
 export const Login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
-    const config = {
-      withCredentials: true,
-  
-      headers: {
-        "Authorization": "Bearer " + cookies.get('tdoken'),
-        "Content-Type": "application/json",
-        "Cookie": cookies.get('tdoken'),
-      },
-    };
+
     const { data } = await axios.post(
       `${server_url()}/api/v1/auth/login`,
       { email, password },
-      config
+      others_method()
     );
     const token = data.token;
     console.log('b-token',token)
+    const cookies = new Cookies(null, { path: "/" });
     const options = {
       path: "/", // cookie path
      
@@ -90,19 +82,11 @@ export const Login = (email, password) => async (dispatch) => {
 export const Singup = (email) => async (dispatch) => {
   try {
     dispatch({ type: SINGUP_REQUEST });
-    const config = {
-      withCredentials: true,
-  
-      headers: {
-        "Authorization": "Bearer " + cookies.get('tdoken'),
-        "Content-Type": "application/json",
-        "Cookie": cookies.get('tdoken'),
-      },
-    };
+
     const { data } = await axios.post(
       `${server_url()}/api/v1/auth/register`,
       { email },
-      config
+      others_method()
     );
     dispatch({ type: SINGUP_SUCCESS, payload: data });
   } catch (error) {
@@ -113,15 +97,7 @@ export const Singup = (email) => async (dispatch) => {
 export const Otp = (userDetails, otp) => async (dispatch) => {
   try {
     dispatch({ type: OTP_REQUEST });
-    const config = {
-      withCredentials: true,
-  
-      headers: {
-        "Authorization": "Bearer " + cookies.get('tdoken'),
-        "Content-Type": "application/json",
-        "Cookie": cookies.get('tdoken'),
-      },
-    };
+
     const { data } = await axios.put(
       `${server_url()}/api/v1/auth/otp`,
       {
@@ -130,7 +106,7 @@ export const Otp = (userDetails, otp) => async (dispatch) => {
         password: userDetails.password,
         otp,
       },
-      config
+      others_method()
     );
 
     dispatch({ type: OTP_SUCCESS, payload: data.user });
@@ -143,19 +119,11 @@ export const Otp = (userDetails, otp) => async (dispatch) => {
 export const userForgetPassword = (email) => async (dispatch) => {
   try {
     dispatch({ type: FORGET_PASSWORD_REQUEST });
-    const config = {
-      withCredentials: true,
-  
-      headers: {
-        "Authorization": "Bearer " + cookies.get('tdoken'),
-        "Content-Type": "application/json",
-        "Cookie": cookies.get('tdoken'),
-      },
-    };
+
     const { data } = await axios.post(
       `${server_url()}/api/v1/auth/password/forgot`,
       { email },
-      config
+      others_method()
     );
 
     dispatch({ type: FORGET_PASSWORD_SUCCESS, payload: data });
@@ -172,19 +140,11 @@ export const resetPassword =
   (token, newPassword, confirmpassword) => async (dispatch) => {
     try {
       dispatch({ type: RESET_PASSWORD_REQUEST });
-      const config = {
-        withCredentials: true,
-    
-        headers: {
-          "Authorization": "Bearer " + cookies.get('tdoken'),
-          "Content-Type": "application/json",
-          "Cookie": cookies.get('tdoken'),
-        },
-      };
+
       const { data } = await axios.put(
         `${server_url()}/api/v1/auth/password/reset/${token}`,
         { newPassword, confirmpassword },
-        config
+        others_method()
       );
       dispatch({ type: RESET_PASSWORD_SUCCESS, payload: data });
     } catch (error) {
@@ -200,19 +160,11 @@ export const resetPassword =
 export const reSendOtp = (id) => async (dispatch) => {
   try {
     dispatch({ type: OTP_RESENDOTP_REQUEST });
-    const config = {
-      withCredentials: true,
-  
-      headers: {
-        "Authorization": "Bearer " + cookies.get('tdoken'),
-        "Content-Type": "application/json",
-        "Cookie": cookies.get('tdoken'),
-      },
-    };
+
     const { data } = await axios.post(
       `${server_url()}/api/v1/auth/resend-otp`,
       { id },
-      config
+      others_method()
     );
     dispatch({ type: OTP_RESENDOTP_SUCCESS, payload: data.message });
   } catch (err) {
@@ -228,18 +180,10 @@ export const reSendOtp = (id) => async (dispatch) => {
 export const LoadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
-    const config = {
-      withCredentials: true,
-  
-      headers: {
-        "Authorization": "Bearer " + cookies.get('tdoken'),
-        "Content-Type": "application/json",
-        "Cookie": cookies.get('tdoken'),
-      },
-    };
+
     const { data } = await axios.get(
       `${server_url()}/api/v1/auth/profie`,
-      config
+      get_method()
     );
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.User });
   } catch (error) {
@@ -267,19 +211,11 @@ export const updateUserProfile = (name, email, avatar) => async (dispatch) => {
     myForm.append("name", name);
     myForm.append("email", email);
     myForm.append("avatar", avatar);
-    const config = {
-      withCredentials: true,
-  
-      headers: {
-        "Authorization": "Bearer " + cookies.get('tdoken'),
-        "Content-Type": "application/json",
-        "Cookie": cookies.get('tdoken'),
-      },
-    };
+
     const { data } = await axios.put(
       `${server_url()}/api/v1/auth/profile/update`,
       myForm,
-      config
+      others_method()
     );
     dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: data.success });
   } catch (error) {
@@ -295,19 +231,11 @@ export const updateUserProfile = (name, email, avatar) => async (dispatch) => {
 export const updatePassword = (passwords) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_PASSWORD_REQUEST });
-    const config = {
-      withCredentials: true,
-  
-      headers: {
-        "Authorization": "Bearer " + cookies.get('tdoken'),
-        "Content-Type": "application/json",
-        "Cookie": cookies.get('tdoken'),
-      },
-    };
+
     const { data } = await axios.put(
       `${server_url()}/api/v1/auth/password/update`,
       passwords,
-      config
+      others_method()
     );
     dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: data.success });
   } catch (error) {
@@ -323,18 +251,9 @@ export const updatePassword = (passwords) => async (dispatch) => {
 export const getAllUsers = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_USER_REQUEST });
-    const config = {
-      withCredentials: true,
-  
-      headers: {
-        "Authorization": "Bearer " + cookies.get('tdoken'),
-        "Content-Type": "application/json",
-        "Cookie": cookies.get('tdoken'),
-      },
-    };
     const { data } = await axios.get(
       `${server_url()}/api/v1/auth/admin/users`,
-      config
+      get_method()
     );
     dispatch({
       type: ALL_USER_SUCCESS,
@@ -353,18 +272,9 @@ export const getAllUsers = () => async (dispatch) => {
 export const getUsersDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: ALL_USER_DETAILS_REQUEST });
-    const config = {
-      withCredentials: true,
-  
-      headers: {
-        "Authorization": "Bearer " + cookies.get('tdoken'),
-        "Content-Type": "application/json",
-        "Cookie": cookies.get('tdoken'),
-      },
-    };
     const { data } = await axios.get(
       `${server_url()}/api/v1/auth/admin/user/${id}`,
-      config
+      get_method()
     );
     dispatch({
       type: ALL_USER_DETAILS_SUCCESS,
@@ -382,19 +292,11 @@ export const getUsersDetails = (id) => async (dispatch) => {
 export const updateUserDetails = (id, detailsData) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_USER_DETAILS_REQUEST });
-    const config = {
-      withCredentials: true,
-  
-      headers: {
-        "Authorization": "Bearer " + cookies.get('tdoken'),
-        "Content-Type": "application/json",
-        "Cookie": cookies.get('tdoken'),
-      },
-    };
+
     const { data } = await axios.put(
       `${server_url()}/api/v1/auth/admin/user/${id}`,
       detailsData,
-      config
+      others_method()
     );
     dispatch({ type: UPDATE_USER_DETAILS_SUCCESS, payload: data.success });
   } catch (error) {
@@ -409,18 +311,9 @@ export const updateUserDetails = (id, detailsData) => async (dispatch) => {
 export const deleteuser = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_USER_REQUEST });
-    const config = {
-      withCredentials: true,
-  
-      headers: {
-        "Authorization": "Bearer " + cookies.get('tdoken'),
-        "Content-Type": "application/json",
-        "Cookie": cookies.get('tdoken'),
-      },
-    };
     const { data } = await axios.delete(
       `${server_url()}/api/v1/auth/admin/user/${id}`,
-    config
+      get_method()
     );
     dispatch({ type: DELETE_USER_SUCCESS, payload: data });
   } catch (error) {
