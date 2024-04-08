@@ -47,18 +47,17 @@ import { server_url } from "../utils/Url";
 import { get_method, others_method } from "../utils/Headers";
 const cookies = new Cookies(null, { path: "/" });
 
-const token = sessionStorage.getItem("token");
 export const Login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
     const config = {
       withCredentials: true,
   
-      // headers: {
-      //   "Authorization": "Bearer " + token,
-      //   "Content-Type": "application/json",
-      //   "Cookie": token,
-      // },
+      headers: {
+        "Authorization": "Bearer " + cookies.get('tdoken'),
+        "Content-Type": "application/json",
+        "Cookie": cookies.get('tdoken'),
+      },
     };
     const { data } = await axios.post(
       `${server_url()}/api/v1/auth/login`,
@@ -80,9 +79,8 @@ export const Login = (email, password) => async (dispatch) => {
         partitioned: false, // store using partitioned storage
     };
     cookies.set("d-token", token, options2);
-    cookies.set("token", token, options);
+    cookies.set("tdoken", token, options);
     console.log('b-token',token)
-    sessionStorage.setItem("token", token);
     dispatch({ type: LOGIN_SUCCESS, payload: data.user });
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });
@@ -96,9 +94,9 @@ export const Singup = (email) => async (dispatch) => {
       withCredentials: true,
   
       headers: {
-        "Authorization": "Bearer " + token,
+        "Authorization": "Bearer " + cookies.get('tdoken'),
         "Content-Type": "application/json",
-        "Cookie": token,
+        "Cookie": cookies.get('tdoken'),
       },
     };
     const { data } = await axios.post(
@@ -119,9 +117,9 @@ export const Otp = (userDetails, otp) => async (dispatch) => {
       withCredentials: true,
   
       headers: {
-        "Authorization": "Bearer " + token,
+        "Authorization": "Bearer " + cookies.get('tdoken'),
         "Content-Type": "application/json",
-        "Cookie": token,
+        "Cookie": cookies.get('tdoken'),
       },
     };
     const { data } = await axios.put(
@@ -149,9 +147,9 @@ export const userForgetPassword = (email) => async (dispatch) => {
       withCredentials: true,
   
       headers: {
-        "Authorization": "Bearer " + token,
+        "Authorization": "Bearer " + cookies.get('tdoken'),
         "Content-Type": "application/json",
-        "Cookie": token,
+        "Cookie": cookies.get('tdoken'),
       },
     };
     const { data } = await axios.post(
@@ -178,9 +176,9 @@ export const resetPassword =
         withCredentials: true,
     
         headers: {
-          "Authorization": "Bearer " + token,
+          "Authorization": "Bearer " + cookies.get('tdoken'),
           "Content-Type": "application/json",
-          "Cookie": token,
+          "Cookie": cookies.get('tdoken'),
         },
       };
       const { data } = await axios.put(
@@ -206,9 +204,9 @@ export const reSendOtp = (id) => async (dispatch) => {
       withCredentials: true,
   
       headers: {
-        "Authorization": "Bearer " + token,
+        "Authorization": "Bearer " + cookies.get('tdoken'),
         "Content-Type": "application/json",
-        "Cookie": token,
+        "Cookie": cookies.get('tdoken'),
       },
     };
     const { data } = await axios.post(
@@ -234,9 +232,9 @@ export const LoadUser = () => async (dispatch) => {
       withCredentials: true,
   
       headers: {
-        "Authorization": "Bearer " + token,
+        "Authorization": "Bearer " + cookies.get('tdoken'),
         "Content-Type": "application/json",
-        "Cookie": token,
+        "Cookie": cookies.get('tdoken'),
       },
     };
     const { data } = await axios.get(
@@ -273,9 +271,9 @@ export const updateUserProfile = (name, email, avatar) => async (dispatch) => {
       withCredentials: true,
   
       headers: {
-        "Authorization": "Bearer " + token,
+        "Authorization": "Bearer " + cookies.get('tdoken'),
         "Content-Type": "application/json",
-        "Cookie": token,
+        "Cookie": cookies.get('tdoken'),
       },
     };
     const { data } = await axios.put(
@@ -301,9 +299,9 @@ export const updatePassword = (passwords) => async (dispatch) => {
       withCredentials: true,
   
       headers: {
-        "Authorization": "Bearer " + token,
+        "Authorization": "Bearer " + cookies.get('tdoken'),
         "Content-Type": "application/json",
-        "Cookie": token,
+        "Cookie": cookies.get('tdoken'),
       },
     };
     const { data } = await axios.put(
@@ -329,9 +327,9 @@ export const getAllUsers = () => async (dispatch) => {
       withCredentials: true,
   
       headers: {
-        "Authorization": "Bearer " + token,
+        "Authorization": "Bearer " + cookies.get('tdoken'),
         "Content-Type": "application/json",
-        "Cookie": token,
+        "Cookie": cookies.get('tdoken'),
       },
     };
     const { data } = await axios.get(
@@ -359,9 +357,9 @@ export const getUsersDetails = (id) => async (dispatch) => {
       withCredentials: true,
   
       headers: {
-        "Authorization": "Bearer " + token,
+        "Authorization": "Bearer " + cookies.get('tdoken'),
         "Content-Type": "application/json",
-        "Cookie": token,
+        "Cookie": cookies.get('tdoken'),
       },
     };
     const { data } = await axios.get(
@@ -388,9 +386,9 @@ export const updateUserDetails = (id, detailsData) => async (dispatch) => {
       withCredentials: true,
   
       headers: {
-        "Authorization": "Bearer " + token,
+        "Authorization": "Bearer " + cookies.get('tdoken'),
         "Content-Type": "application/json",
-        "Cookie": token,
+        "Cookie": cookies.get('tdoken'),
       },
     };
     const { data } = await axios.put(
@@ -415,14 +413,14 @@ export const deleteuser = (id) => async (dispatch) => {
       withCredentials: true,
   
       headers: {
-        "Authorization": "Bearer " + token,
+        "Authorization": "Bearer " + cookies.get('tdoken'),
         "Content-Type": "application/json",
-        "Cookie": token,
+        "Cookie": cookies.get('tdoken'),
       },
     };
     const { data } = await axios.delete(
       `${server_url()}/api/v1/auth/admin/user/${id}`,
-      config
+    config
     );
     dispatch({ type: DELETE_USER_SUCCESS, payload: data });
   } catch (error) {
