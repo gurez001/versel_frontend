@@ -255,7 +255,7 @@ console.log(postmeta)
           <Aside />
           <div id="ad-body">
             <div className="ad-cont">
-              <section className="page-section">
+              <section className="ad-section">
                 <div className="all-products-cont">
                   <div className="all-products-content-area">
                     <div className="all-products-title">

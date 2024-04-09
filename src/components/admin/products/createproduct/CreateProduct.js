@@ -143,10 +143,10 @@ export const CreateProduct = () => {
         alert.error("fill Product Description field");
         break;
 
-      case (imageIds ?? []).length === 0:
-        hasError = true;
-        alert.error("Please add images");
-        break;
+      // case (imageIds ?? []).length === 0:
+      //   hasError = true;
+      //   alert.error("Please add images");
+      //   break;
       case (checkedItems ?? []).length === 0:
         hasError = true;
         alert.error("Please select parent category");
@@ -220,9 +220,9 @@ export const CreateProduct = () => {
           checkedItems ? checkedItems : []
         )
       );
-      dispatch(
-        create_seo(seo_input_value, productData.product_uuid, generateUuid(),seo_keywords)
-      );
+      // dispatch(
+      //   create_seo(seo_input_value, productData.product_uuid, generateUuid(),seo_keywords?seo_keywords: [])
+      // );
     }
   };
 
@@ -261,7 +261,7 @@ export const CreateProduct = () => {
           <Aside />
           <div id="ad-body">
             <div className="ad-cont">
-              <section className="page-section">
+              <section className="ad-section">
                 <div className="all-products-cont">
                   <div className="all-products-content-area">
                     <div className="all-products-title">
