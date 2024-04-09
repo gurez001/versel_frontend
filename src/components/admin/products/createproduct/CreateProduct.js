@@ -68,7 +68,6 @@ export const CreateProduct = () => {
   };
 
   const handleCheckboxChange = (itemIndex, id) => {
-    
     setCheckedItems((prev) =>
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
     );
@@ -107,7 +106,7 @@ export const CreateProduct = () => {
     let productData = {
       title: title,
       article: article,
-      slug:[seo_input_value.seo_slug],
+      slug: [seo_input_value.seo_slug],
       content: content,
       product_Type: product_Type,
       SKU: SKU,
@@ -220,9 +219,14 @@ export const CreateProduct = () => {
           checkedItems ? checkedItems : []
         )
       );
-      // dispatch(
-      //   create_seo(seo_input_value, productData.product_uuid, generateUuid(),seo_keywords?seo_keywords: [])
-      // );
+      dispatch(
+        create_seo(
+          seo_input_value,
+          productData.product_uuid,
+          generateUuid(),
+          seo_keywords ? seo_keywords : []
+        )
+      );
     }
   };
 

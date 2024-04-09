@@ -236,14 +236,16 @@ export const adminGetAllProducts = () => async (dispatch) => {
 export const createNewProduct =
   (productData, VariationData, imageIds, subcheckedItems, checkedItems) =>
   async (dispatch) => {
+    console.log(imageIds)
     try {
       dispatch({ type: NEW_PRODUCT_REQUEST });
       const VariationJsonData = JSON.stringify(VariationData);
       const formData = new FormData();
       formData.append("variation", VariationJsonData);
-      for (let i = 0; i < imageIds.length; i++) {
-        formData.append("imageId", String(imageIds[i]));
-      }
+      formData.append("imageId",imageIds);
+      // for (let i = 0; i < imageIds.length; i++) {
+      //   formData.append("imageId", String(imageIds[i]));
+      // }
       for (let i = 0; i < subcheckedItems.length; i++) {
         formData.append("subcategory", String(subcheckedItems[i]));
       }
