@@ -106,7 +106,7 @@
   position: relative;
   z-index: 50;
 }
-.product-details{
+.product-details {
   max-width: 250px;
   margin: 0 auto;
 }
@@ -114,7 +114,7 @@
   min-height: 80px;
 }
 .product-details h3 a {
-  font-size:16px;
+  font-size: 16px;
   line-height: calc(1.4 * (1 + (1 - 2) / 25));
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -157,10 +157,10 @@
   z-index: 1; /* Adjust the z-index to make sure it's above the background image */
 }
 .product-card .MuiRating-root,
-.card-containor .MuiRating-root{
-  font-size: 1rem !important; 
-} 
-.rev-tot{
+.card-containor .MuiRating-root {
+  font-size: 1rem !important;
+}
+.rev-tot {
   font-size: 12px;
 }
 .coupen-col {
@@ -326,11 +326,10 @@
   /* line-height: 1.5;
   white-space: nowrap; */
   height: 42px;
-  font-size: calc((1.55 - 1)* 1.2vw + 0.8rem);
-    line-height: calc(1.4*(1 +(1 - 2) / 25));
-    color: #666; 
-    font-weight: 600;
-    
+  font-size: calc((1.55 - 1) * 1.2vw + 0.8rem);
+  line-height: calc(1.4 * (1 + (1 - 2) / 25));
+  color: #666;
+  font-weight: 600;
 }
 
 /* product card */
@@ -491,6 +490,12 @@ p {
 @media only screen and (max-width: 519px) {
   .card-col {
     width: 47%;
+  }
+  .cop-font-cont {
+    font-size: 30px;
+  }
+  .coupen-col h3 {
+    line-height: calc(1.5 * (1 + (1 - 1) / 25));
   }
 }
 

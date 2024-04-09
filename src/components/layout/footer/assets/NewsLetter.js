@@ -10,14 +10,19 @@ import { useAlert } from "react-alert";
 import { EMAIL_SUBSCRIPTION_RESET } from "../../../../constants/Subscription_Constant";
 const NewsLetter = () => {
   const [inputValue, setInputValue] = useState("");
+  const alert = useAlert();
   const { success, loading, error } = useSelector(
     (state) => state.subscription
   );
   const dispatch = useDispatch();
-  const alert = useAlert();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!inputValue || !emailPattern.test(inputValue)) {
+      alert.error("Please enter a valid email address");
+      return;
+    }
     dispatch(email_subscription(inputValue, generateUuid()));
   };
 
@@ -53,7 +58,7 @@ const NewsLetter = () => {
               onChange={(e) => setInputValue(e.target.value)}
             />
             <Button
-            className="button-success"
+              className="button-success"
               disabled={loading}
               onClick={(e) => handleSubmit(e)}
               type="submit"

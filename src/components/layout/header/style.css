@@ -157,10 +157,10 @@ header {
   font-weight: 600;
   position: absolute;
   font-family: "Inter";
-  font-size: 30px;
+  font-size: 23px;
   right: -4px;
   z-index: 5;
-  color: red;
+  color: #31ad31;
   top: -5px;
 }
 
