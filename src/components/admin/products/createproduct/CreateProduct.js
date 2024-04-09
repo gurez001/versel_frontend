@@ -68,6 +68,7 @@ export const CreateProduct = () => {
   };
 
   const handleCheckboxChange = (itemIndex, id) => {
+    
     setCheckedItems((prev) =>
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
     );
@@ -106,7 +107,7 @@ export const CreateProduct = () => {
     let productData = {
       title: title,
       article: article,
-      slug: [seo_input_value.seo_slug],
+      slug:[seo_input_value.seo_slug],
       content: content,
       product_Type: product_Type,
       SKU: SKU,
@@ -142,10 +143,10 @@ export const CreateProduct = () => {
         alert.error("fill Product Description field");
         break;
 
-      // case (imageIds ?? []).length === 0:
-      //   hasError = true;
-      //   alert.error("Please add images");
-      //   break;
+      case (imageIds ?? []).length === 0:
+        hasError = true;
+        alert.error("Please add images");
+        break;
       case (checkedItems ?? []).length === 0:
         hasError = true;
         alert.error("Please select parent category");
@@ -220,12 +221,7 @@ export const CreateProduct = () => {
         )
       );
       dispatch(
-        create_seo(
-          seo_input_value,
-          productData.product_uuid,
-          generateUuid(),
-          seo_keywords ? seo_keywords : []
-        )
+        create_seo(seo_input_value, productData.product_uuid, generateUuid(),seo_keywords)
       );
     }
   };
@@ -265,7 +261,7 @@ export const CreateProduct = () => {
           <Aside />
           <div id="ad-body">
             <div className="ad-cont">
-              <section className="ad-section">
+              <section className="page-section">
                 <div className="all-products-cont">
                   <div className="all-products-content-area">
                     <div className="all-products-title">
