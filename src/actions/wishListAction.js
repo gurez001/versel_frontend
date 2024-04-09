@@ -21,10 +21,7 @@ export const wishListAction = (id, price) => async (dispatch, getState) => {
       link: data.Product.slug,
       name: data.Product.product_name,
       price: price,
-      path:
-        data.Product.product_images.length > 0
-          ? data.Product.product_images[0].path
-          : "/Logo.png",
+      path: data.Product.product_images[0].path,
       category: data.Product.product_category[0].slug,
     },
   });
