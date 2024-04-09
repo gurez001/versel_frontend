@@ -97,9 +97,9 @@ export const Shipping = () => {
                   ) : (
                     <>
                       {/* //--------form part---------- */}
-                      <form className="shipping-form" onSubmit={shippingSubmit}>
+                      <form className="shipping-form form" onSubmit={shippingSubmit}>
                         <div className="input-list">
-                          <label htmlFor="address">Full name</label>
+                          <label className="xsm-font-size" htmlFor="address">Full name</label>
                           <div className="inputTaglist">
                             <span>
                               <FaClipboardList />
@@ -116,7 +116,7 @@ export const Shipping = () => {
                           </div>
                         </div>
                         <div className="input-list">
-                          <label htmlFor="phoneNo">Phone number</label>
+                          <label className="xsm-font-size" htmlFor="phoneNo">Phone number</label>
                           <div className="inputTaglist">
                             <span>
                               <FaPhone />
@@ -133,7 +133,7 @@ export const Shipping = () => {
                           </div>
                         </div>
                         <div className="input-list">
-                          <label htmlFor="email">Email</label>
+                          <label className="xsm-font-size" htmlFor="email">Email</label>
                           <div className="inputTaglist">
                             <span>
                               <FaRegEnvelope />
@@ -150,7 +150,7 @@ export const Shipping = () => {
                           </div>
                         </div>
                         <div className="input-list">
-                          <label htmlFor="address">Address</label>
+                          <label className="xsm-font-size" htmlFor="address">Address</label>
                           <div className="inputTaglist">
                             <span>
                               <FaAddressBook />
@@ -167,7 +167,7 @@ export const Shipping = () => {
                           </div>
                         </div>
                         <div className="input-list">
-                          <label htmlFor="country">Country</label>
+                          <label className="xsm-font-size" htmlFor="country">Country</label>
                           <div className="inputTaglist">
                             <span>
                               <FaEarthAsia />
@@ -199,7 +199,7 @@ export const Shipping = () => {
                         </div>
 
                         {/* <div className="input-list">
-                    <label htmlFor="city">City</label>
+                    <label className="xsm-font-size" htmlFor="city">City</label>
                     <input
                       type="text"
                       name="city"
@@ -211,7 +211,7 @@ export const Shipping = () => {
                     />
                   </div> */}
                         <div className="input-list">
-                          <label htmlFor="state">state</label>
+                          <label className="xsm-font-size" htmlFor="state">state</label>
                           <div className="inputTaglist">
                             <span>
                               <FaRegFlag />
@@ -234,7 +234,7 @@ export const Shipping = () => {
                           </div>
                         </div>
                         <div className="input-list">
-                          <label htmlFor="city">City</label>
+                          <label className="xsm-font-size" htmlFor="city">City</label>
                           <div className="inputTaglist">
                             <span>
                               <FaTreeCity />
@@ -257,7 +257,7 @@ export const Shipping = () => {
                           </div>
                         </div>
                         <div className="input-list">
-                          <label htmlFor="pincode">Pin Code</label>
+                          <label className="xsm-font-size" htmlFor="pincode">Pin Code</label>
                           <div className="inputTaglist">
                             <span>
                               <FaMapPin />{" "}
