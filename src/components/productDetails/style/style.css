@@ -360,6 +360,12 @@ del {
   .product-main {
     flex-direction: column;
   }
+  .product-navigation ul{
+    flex-wrap: wrap;
+  }
+  .summary {
+    padding-top: 20px;
+  }
   .product-single .product-details .col-md-5:nth-child(1),
   .review-area .col-md-5:nth-child(1) {
     width: 30%;
