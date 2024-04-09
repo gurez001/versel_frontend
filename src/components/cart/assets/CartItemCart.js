@@ -10,8 +10,8 @@ export const CartItemCart = ({ item }) => {
       <div className="col-md-7">
         <div className="row">
           <div className="thumb col-md-2">
-            {/* <img src={`${server_url()}/${item.path}`} alt="imagesss" /> */}
-            <img src="/Logo.png" alt="ss" />
+            <img src={`${server_url()}/${item.path}`} alt="imagesss" />
+          
           </div>
           <div
             className="product-item col-md-10 w-item-tittle"

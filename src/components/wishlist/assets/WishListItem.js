@@ -22,10 +22,9 @@ export const WishListItem = ({ item }) => {
         className="postbox-inner row w-item"
       >
         <div className="col-md-8">
-          <div style={{gap:5}} className="row">
+          <div style={{ gap: 5 }} className="row">
             <div className="thumb col-md-4">
-              {/* <LazyLoadImages product={item} /> */}
-              <img src="/Logo.png" alt="ss" />
+              <LazyLoadImages product={item} />
             </div>
 
             <div className="col-md-8">
@@ -48,7 +47,7 @@ export const WishListItem = ({ item }) => {
         <div className="col-md-3">
           <Button onClick={() => buyNow(item.link, 1)}>Buy now</Button>
         </div>
-        <div style={{textAlign:'end'}} className="col-md-3">
+        <div style={{ textAlign: "end" }} className="col-md-3">
           <RemoveWishItem item={item} />
         </div>
       </div>
