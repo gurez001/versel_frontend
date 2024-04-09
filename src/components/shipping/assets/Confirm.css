@@ -13,7 +13,6 @@
 .oder-left,
 .oder-right {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  
 }
 .oder-left p,
 .order-summery-conf-area p {
@@ -44,7 +43,7 @@
 .shipping-info {
   margin-top: 20px;
 }
-.shiping-coupon{
+.shiping-coupon {
   margin-bottom: 20px;
 }
 .conf-col {
@@ -132,19 +131,25 @@
   .conf-col {
     width: 100% !important;
   }
+  .shipping-form-containor .shipping-form {
+    gap: 0px;
+    padding: 0px !important;
+}
 }
 @media only screen and (max-width: 767px) {
   .order-summery-conf-area p span {
     width: 50%;
   }
-  .oder-left p span:nth-child(2){
+  .stepper-main .MuiTypography-body1 {
+    font-size: 12px !important;
+  }
+  .oder-left p span:nth-child(2) {
     text-align: left;
   }
-  .oder-left p{
+  .oder-left p {
     flex-direction: column;
   }
-  .stepper-main .MuiStepper-root{
+  .stepper-main .MuiStepper-root {
     padding: 24px 0px !important;
   }
-
 }
