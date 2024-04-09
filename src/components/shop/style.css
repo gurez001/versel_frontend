@@ -66,7 +66,7 @@ aside {
 .product-page-- .product-details h3 {
   margin: 5px 0 0 0;
 }
-.product-page--{
+.product-page-- {
   margin-top: 25px;
 }
 .product-page-- .product-details h3 a {
@@ -238,7 +238,11 @@ aside {
   .main-content-product {
     margin-top: 20px;
   }
+  .product-page-- aside {
+    display: none !important;
+  }
 }
+
 .product-page-- .aside-bar-cont {
   width: 25%;
 }

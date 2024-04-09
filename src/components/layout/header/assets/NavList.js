@@ -1,19 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import {
-  getAllCategories,
   nav_main_list,
   nav_sub_list,
 } from "../../../../actions/CategoreAction";
-import { FaWineBottle } from "react-icons/fa";
-import { GiBeerBottle } from "react-icons/gi";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 export const NavList = ({ toggleContentRemove }) => {
-  const data = useParams();
-
   const [visible, setVisible] = useState(null);
 
   const handleClick = (i) => {
@@ -30,7 +25,7 @@ export const NavList = ({ toggleContentRemove }) => {
     dispatch(nav_main_list());
     dispatch(nav_sub_list());
   }, [dispatch]);
-  const icons = [<FaWineBottle />, <GiBeerBottle />];
+
   return (
     <>
       {!catLoading ? (
