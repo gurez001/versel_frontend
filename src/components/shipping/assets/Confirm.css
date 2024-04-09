@@ -131,7 +131,6 @@
   .conf-col {
     width: 100% !important;
   }
-  
 }
 @media only screen and (max-width: 767px) {
   .order-summery-conf-area p span {
@@ -152,6 +151,8 @@
   .shipping-form-containor .shipping-form {
     gap: 0px;
     padding: 0px !important;
-}
-
+  }
+  .conf-col {
+    padding: 0px;
+  }
 }

@@ -149,8 +149,10 @@ const ProccessPaymentStep = () => {
         content={"Payment Proccess"}
         keywords={"Payment Proccess"}
       />
-      <CheckoutStep activeStep={2} />
-      <section className="section-cont">
+      <div className="stepper-main">
+        <CheckoutStep activeStep={2} />
+      </div>
+      <section>
         <div id="pay-cont" className="cont-area-h">
           {loading ? (
             <Loader />

@@ -18,7 +18,9 @@ export const ConfirmStep = () => {
         content={"Cofnirm Step"}
         keywords={"Cofnirm Step"}
       />
-      <CheckoutStep activeStep={1} />
+       <div className="stepper-main">
+        <CheckoutStep activeStep={1} />
+      </div>
       <section className="section-cont">
         <div id="prod-cont" className="cont-area-h">
           <div className="confirm-order-page conf-row">
