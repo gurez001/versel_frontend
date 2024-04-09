@@ -108,7 +108,8 @@ export const Home = () => {
         <div id="prod-cont" className="prod-cont cont-area-h">
           <div className="row flex-wrap">
             {loding
-              ? products && products .map((item, i) => <ProductAnimation key={i} />)
+              ? products &&
+                products.map((item, i) => <ProductAnimation key={i} />)
               : products &&
                 products
                   .slice(0, 8)
