@@ -134,7 +134,10 @@
   .shipping-form-containor .shipping-form {
     gap: 0px;
     padding: 0px !important;
-}
+  }
+  .shipping-form .input-list:nth-last-child(3) {
+    margin: 10px;
+  }
 }
 @media only screen and (max-width: 767px) {
   .order-summery-conf-area p span {
