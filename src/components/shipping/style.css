@@ -12,45 +12,19 @@
 }
 .shipping-form {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px;
 }
-.shipping-form .input-list {
+.shipping-form .input-list{
   width: 100%;
-  flex: 0 0 auto;
-  display: inline-block;
-  margin-top: 20px;
 }
 .shipping-form .input-list:nth-last-child(2),
 .shipping-form .input-list:nth-last-child(3) {
   width: 48%;
 }
-.shipping-form .input-list label {
-  margin-bottom: 5px;
-  font-size: 16px;
-}
-.shipping-form .input-list label,
-.shipping-form .input-list input,
-.shipping-form .input-list select {
-  display: block;
-  width: 100%;
-  flex: 0 0 auto;
-}
-.shipping-form .input-list input,
-.shipping-form .input-list select {
+.shipping-form input,
+.shipping-form select{
   height: 40px;
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 8px;
-  background: var(--g-white);
-}
-.shipping-form .input-list input[type="submit"] {
-  cursor: pointer;
-  transition: all 0.3s ease-in;
-  background: var(--G-green);
-  font-weight: 600;
-  font-size: 18px;
-  color: var(--g-white);
 }
 
 .pay-cont {

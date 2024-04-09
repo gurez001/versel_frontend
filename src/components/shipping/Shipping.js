@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
+import { Button } from '@mui/base/Button';
 import { saveShippingInfo } from "../../actions/cartAction";
 import { State, City } from "country-state-city";
 import { useAlert } from "react-alert";
@@ -28,16 +29,16 @@ export const Shipping = () => {
   const { loading } = useSelector((state) => state.user);
   const { cartItem } = useSelector((state) => state.cart);
 
-  const [fullName, setfullName] = useState('');
-  const [address, setAddress] = useState('');
-  const [email, setemail] = useState('');
+  const [fullName, setfullName] = useState("");
+  const [address, setAddress] = useState("");
+  const [email, setemail] = useState("");
   // const [city, setCity] = useState(shippinginfo);
-  const [state, setState] = useState('');
-  const [city, setCity] = useState('');
+  const [state, setState] = useState("");
+  const [city, setCity] = useState("");
   const country = "India";
-  const [pinCode, setPinCode] = useState('');
-  const [phoneNo, setPhoneNo] = useState('');
-  
+  const [pinCode, setPinCode] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
+
   const shippingSubmit = (e) => {
     e.preventDefault();
     if (phoneNo.length < 10 || phoneNo.length > 10) {
@@ -58,20 +59,18 @@ export const Shipping = () => {
     );
     Navigate("/shipping/order/confirm");
   };
- 
-  useEffect(()=>{
 
-    if(shippinginfo){
-      setfullName(shippinginfo&&shippinginfo.fullName)
-      setAddress(shippinginfo.address)
-      setemail(shippinginfo.email)
-      setState(shippinginfo.state)
-      setCity(shippinginfo.city)
-      setPinCode(shippinginfo.pinCode)
-      setPhoneNo(shippinginfo.phoneNo)
+  useEffect(() => {
+    if (shippinginfo) {
+      setfullName(shippinginfo && shippinginfo.fullName);
+      setAddress(shippinginfo.address);
+      setemail(shippinginfo.email);
+      setState(shippinginfo.state);
+      setCity(shippinginfo.city);
+      setPinCode(shippinginfo.pinCode);
+      setPhoneNo(shippinginfo.phoneNo);
     }
-
-  },[shippinginfo,dispatch])
+  }, [shippinginfo, dispatch]);
 
   return (
     <>
@@ -81,7 +80,7 @@ export const Shipping = () => {
         keywords={" Shipped Order"}
       />
       <div className="stepper-main">
-      <CheckoutStep activeStep={0} />
+        <CheckoutStep activeStep={0} />
       </div>
       <section className="section-cont">
         <div id="shipping-cont" className="cont-area-h">
@@ -97,9 +96,17 @@ export const Shipping = () => {
                   ) : (
                     <>
                       {/* //--------form part---------- */}
-                      <form className="shipping-form form" onSubmit={shippingSubmit}>
-                        <div className="input-list">
-                          <label className="xsm-font-size" htmlFor="address">Full name</label>
+                      <form
+                        className="shipping-form form"
+                        onSubmit={shippingSubmit}
+                      >
+                        <div className="input-list from-space ">
+                          <label
+                            className="xsm-font-size from-space "
+                            htmlFor="address"
+                          >
+                            Full name
+                          </label>
                           <div className="inputTaglist">
                             <span>
                               <FaClipboardList />
@@ -115,8 +122,13 @@ export const Shipping = () => {
                             />
                           </div>
                         </div>
-                        <div className="input-list">
-                          <label className="xsm-font-size" htmlFor="phoneNo">Phone number</label>
+                        <div className="input-list from-space ">
+                          <label
+                            className="xsm-font-size from-space "
+                            htmlFor="phoneNo"
+                          >
+                            Phone number
+                          </label>
                           <div className="inputTaglist">
                             <span>
                               <FaPhone />
@@ -132,8 +144,13 @@ export const Shipping = () => {
                             />
                           </div>
                         </div>
-                        <div className="input-list">
-                          <label className="xsm-font-size" htmlFor="email">Email</label>
+                        <div className="input-list from-space ">
+                          <label
+                            className="xsm-font-size from-space"
+                            htmlFor="email"
+                          >
+                            Email
+                          </label>
                           <div className="inputTaglist">
                             <span>
                               <FaRegEnvelope />
@@ -149,8 +166,13 @@ export const Shipping = () => {
                             />
                           </div>
                         </div>
-                        <div className="input-list">
-                          <label className="xsm-font-size" htmlFor="address">Address</label>
+                        <div className="input-list from-space ">
+                          <label
+                            className="xsm-font-size from-space"
+                            htmlFor="address"
+                          >
+                            Address
+                          </label>
                           <div className="inputTaglist">
                             <span>
                               <FaAddressBook />
@@ -166,8 +188,13 @@ export const Shipping = () => {
                             />
                           </div>
                         </div>
-                        <div className="input-list">
-                          <label className="xsm-font-size" htmlFor="country">Country</label>
+                        <div className="input-list from-space ">
+                          <label
+                            className="xsm-font-size from-space"
+                            htmlFor="country"
+                          >
+                            Country
+                          </label>
                           <div className="inputTaglist">
                             <span>
                               <FaEarthAsia />
@@ -183,35 +210,15 @@ export const Shipping = () => {
                               // onChange={(e) => setCountry(e.target.value)}
                             />
                           </div>
-
-                          {/* <select
-                      required
-                      value={country}
-                      onChange={(e) => setCountry(e.target.value)}
-                    >
-                      <option value="IN">India</option>
-                      {Country.getAllCountries().map((item) => (
-                        <option key={item.isoCode} value={item.name}>
-                          {item.name}
-                        </option>
-                      ))}
-                    </select> */}
                         </div>
 
-                        {/* <div className="input-list">
-                    <label className="xsm-font-size" htmlFor="city">City</label>
-                    <input
-                      type="text"
-                      name="city"
-                      required
-                      placeholder="City"
-                      value={city}
-                      autoComplete="on"
-                      onChange={(e) => setCity(e.target.value)}
-                    />
-                  </div> */}
-                        <div className="input-list">
-                          <label className="xsm-font-size" htmlFor="state">state</label>
+                        <div className="input-list from-space ">
+                          <label
+                            className="xsm-font-size from-space"
+                            htmlFor="state"
+                          >
+                            state
+                          </label>
                           <div className="inputTaglist">
                             <span>
                               <FaRegFlag />
@@ -233,8 +240,13 @@ export const Shipping = () => {
                             </select>
                           </div>
                         </div>
-                        <div className="input-list">
-                          <label className="xsm-font-size" htmlFor="city">City</label>
+                        <div className="input-list from-space ">
+                          <label
+                            className="xsm-font-size from-space"
+                            htmlFor="city"
+                          >
+                            City
+                          </label>
                           <div className="inputTaglist">
                             <span>
                               <FaTreeCity />
@@ -256,8 +268,13 @@ export const Shipping = () => {
                             </select>
                           </div>
                         </div>
-                        <div className="input-list">
-                          <label className="xsm-font-size" htmlFor="pincode">Pin Code</label>
+                        <div className="input-list from-space ">
+                          <label
+                            className="xsm-font-size from-space"
+                            htmlFor="pincode"
+                          >
+                            Pin Code
+                          </label>
                           <div className="inputTaglist">
                             <span>
                               <FaMapPin />{" "}
@@ -273,14 +290,15 @@ export const Shipping = () => {
                             />
                           </div>
                         </div>
-                        <div className="input-list">
+                        <div className="input-list from-space ">
                           <div className="inputTaglist">
-                            <input
-                              type="submit"
-                              value="Continue"
-                              className="shippingbtn"
+                            <Button
+                            style={{cursor:'pointer'}}
                               disabled={state ? false : true}
-                            />
+                              type="submit"
+                            >
+                              Continue
+                            </Button>
                           </div>
                         </div>
                       </form>
